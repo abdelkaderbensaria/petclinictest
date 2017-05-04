@@ -1,22 +1,19 @@
-FROM aarchoun/java
+FROM mysql
 
-RUN C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe (new-object System.Net.WebClient).Downloadfile('https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.55-winx64.zip', 'C:\MySQL-5.zip')
-RUN C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -command Expand-Archive -Path C:\MySQL-5.zip -DestinationPath C:
+ENV MYSQL_ROOT_PASSWORD root
+ENV MYSQL_DATABASE petclinic
+ENV MYSQL_USER root
+ENV MYSQL_PASSWORD root
 
-ENV Path  C:\\mysql-5.5.55-winx64\\bin
+# copy over the script that creates my tables and populates them
+copy schema.sql tmp/
+copy privileges.sql tmp/
 
-
-EXPOSE 3306
-
-COPY schema.sql C:/mysql-5.5.55-winx64/bin
-
-COPY privileges.sql C:/mysql-5.5.55-winx64/bin
-
-CMD ["C:/mysql-5.5.55-winx64/bin/mysqld.exe"]
-
-
+# one line that took me hours to figure out
+ONBUILD run mysql -uroot -p root petclinic < tmp/schema.sql && \
+          mysql -uroot -p root petclinic < tmp/privileges.sql \
 
     
-
+EXPOSE 3306
 
 
