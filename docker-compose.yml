@@ -1,9 +1,16 @@
-mysql:
-  image: mysql
-  ports:
-    - "3306:3306"
+mywildfly:
+  image: abdelkader/petclinic
   environment:
-    - MYSQL_ROOT_PASSWORD=root
-    - MYSQL_DATABASE=test
-   volumes:
-- "./conf.d:/etc/mysql/conf.d:ro"
+    - "MYSQL_URI=db:3306"
+    - DEBUG=true
+  volumes:
+    - /opt/DockerFiles/Compose/Wildfly/DeployedWars:/opt/jboss/wildfly/standalone/deployments/
+  links:
+   - my
+my:
+  # this allowed the building of the custom configuration I created above
+  # which resides in a 'MySql' subdirectory
+  build: my 
+  # exposes the port to the shared appliance, but not to the outside world
+  ports:
+    - "8081:8080"
