@@ -26,6 +26,15 @@
             <url>http://localhost:8081/nexus/content/repositories/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
+
+ <groupId>com.lazerycode.jmeter</groupId>
+    <artifactId>jmeter-maven-plugin</artifactId>
+    <version>DEV-SNAPSHOT</version>
+<packaging>maven-plugin</packaging>
+
+<name>JMeter Maven Plugin</name>
+    <description>A plugin to allow you to run JMeter tests with Maven.</description>
+<url>http://jmeter.lazerycode.com</url>
   <properties>
 
     <!-- Generic properties -->
@@ -42,6 +51,7 @@
     <thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
 
     <cobertura.version>2.7</cobertura.version>
+   <supported.jmeter.version>3.2</supported.jmeter.version>
 
   </properties>
 
@@ -265,7 +275,7 @@
 <plugin>
     <groupId>com.lazerycode.jmeter</groupId>
     <artifactId>jmeter-maven-plugin</artifactId>
-    <version>1.9.1</version>
+    <version>2.2.0</version>
     <executions>
         <execution>
             <id>jmeter-tests</id>
