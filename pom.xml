@@ -47,6 +47,12 @@
    <supported.jmeter.version>3.2</supported.jmeter.version>
 
   </properties>
+ <properties>
+            <!-- Optional URL to server. Default value is http://localhost:9000 -->
+            <sonar.host.url>
+              http://localhost:9000
+            </sonar.host.url>
+        </properties>
 
   <dependencies>
     <!-- Spring and Spring Boot dependencies -->
