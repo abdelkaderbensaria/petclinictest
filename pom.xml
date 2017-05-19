@@ -46,7 +46,7 @@
     <cobertura.version>2.7</cobertura.version>
    <supported.jmeter.version>3.2</supported.jmeter.version>
    <sonar.host.url>
-              http://myserver:9000
+              http://localhost:9000
             </sonar.host.url>
   </properties>
  
