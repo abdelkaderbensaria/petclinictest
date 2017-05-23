@@ -18,12 +18,12 @@
         <repository>
             <id>deployment</id>
             <name>Internal Releases</name>
-            <url>http://192.168.99.1:8081/nexus/content/repositories/releases/</url>
+            <url>http://10.6.55.43.1:8081/nexus/content/repositories/releases/</url>
         </repository>
         <snapshotRepository>
             <id>deployment</id>
             <name>Internal Snapshot Releases</name>
-            <url>http://192.168.99.1:8081/nexus/content/repositories/snapshots/</url>
+            <url>http://10.6.55.43:8081/nexus/content/repositories/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -46,7 +46,7 @@
     <cobertura.version>2.7</cobertura.version>
    <supported.jmeter.version>3.2</supported.jmeter.version>
    <sonar.host.url>
-              http://192.168.99.1:9000
+              http://10.6.55.43:9000
             </sonar.host.url>
   </properties>
  
